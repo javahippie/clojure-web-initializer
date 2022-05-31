@@ -44,6 +44,7 @@
     <orderEntry type="library" name="Leiningen: com.fasterxml.jackson.dataformat/jackson-dataformat-smile:2.9.6" level="project" />
     <orderEntry type="library" name="Leiningen: com.fasterxml.jackson.datatype/jackson-datatype-jsr310:2.12.0" level="project" />
     <orderEntry type="library" name="Leiningen: com.googlecode.json-simple/json-simple:1.1.1" level="project" />
+    <orderEntry type="library" name="Leiningen: com.lambdaschmiede/maja:0.1.2" level="project" />
     <orderEntry type="library" name="Leiningen: commons-codec:1.15" level="project" />
     <orderEntry type="library" name="Leiningen: commons-fileupload:1.4" level="project" />
     <orderEntry type="library" name="Leiningen: commons-io:2.10.0" level="project" />
@@ -55,6 +56,7 @@
     <orderEntry type="library" name="Leiningen: fipp:0.6.24" level="project" />
     <orderEntry type="library" name="Leiningen: hiccup:1.0.5" level="project" />
     <orderEntry type="library" name="Leiningen: http-kit:2.5.0" level="project" />
+    <orderEntry type="library" name="Leiningen: io.honeycomb.libhoney/libhoney-java:1.4.1" level="project" />
     <orderEntry type="library" name="Leiningen: javax.servlet/javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Leiningen: javax.xml.bind/jaxb-api:2.3.0" level="project" />
     <orderEntry type="library" name="Leiningen: json-html:0.4.7" level="project" />

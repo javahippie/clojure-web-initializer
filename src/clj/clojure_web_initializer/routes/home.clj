@@ -138,16 +138,24 @@
                               [:span description]]
                              [:span {:class "badge bg-primary rounded-pill"} category]]))]))))
 
+(defn render-module {:traced true} [module]
+  [:span {:class     "badge rounded-pill text-bg-primary close"
+          :hx-delete (str "/remove?value=" module)
+          :hx-target "#modules"
+          :hx-swap   "innerHtml"} module])
+
 (defn add-module {:traced true} [{:keys [session params]}]
-  (let [session (-> session
-                    (update :modules #(conj % (str "+" (:value params)))))]
-    (assoc (response/ok (html (map (fn [module]
-                                     [:span {:class "badge rounded-pill text-bg-primary"} module]) (:modules session)))) :session session)))
+  (let [s (update session :modules #(conj (set %) (:value params)))]
+    (assoc (response/ok (html (map render-module (:modules s)))) :session s)))
+
+(defn remove-module {:traced true} [{:keys [session params]}]
+  (let [s (update session :modules disj (:value params))]
+    (assoc (response/ok (html (map render-module (:modules s)))) :session s)))
 
 (defn generate-template {:traced true} [{:keys [session params]}]
   (let [id (str "/tmp/cljgen_" (random-uuid))
         name (:name params)
-        modules (:modules session)]
+        modules (map #(str "+" %) (:modules session))]
     (sh "mkdir" id)
     (apply sh (concat ["lein" "new" "luminus" name] modules [:dir id]))
     (sh "zip" "-r" (str name ".zip") name :dir id)
@@ -166,5 +174,6 @@
    ["/" {:get home-page}]
    ["/search" {:post search-modules}]
    ["/generate.zip" {:post generate-template}]
-   ["/add" {:post add-module}]])
+   ["/add" {:post add-module}]
+   ["/remove" {:delete remove-module}]])
 
