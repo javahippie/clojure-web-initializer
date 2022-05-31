@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Luminus Initializer</title>
+    <script src="/js/htmx-min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+
+    <!-- styles -->
+
+    {% style "/css/screen.css" %}
+</head>
+<body class="bg-light">
+
+<div class="container">
+    <div class="py-5 text-center">
+        <h1>Initialize your Clojure Web Project!</h1>
+        <span>Select the style of your project template, then add modules to it to get started</span>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+
+            <h2>Basic Settings</h2>
+            <form action="/generate.zip" method="post">
+                <div class="mb-3">
+                    <label id="name-label"
+                           class="form-label"
+                           for="name">Name</label>
+                    <input id="name"
+                           class="form-control"
+                           name="name"/>
+                </div>
+                <div class="mb-3">
+                    <h3>Select your template type</h3>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Luminus
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" disabled>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            kit-clj (coming soon)
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div>
+                        <div id="modules"></div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button id="generate"
+                            class="btn btn-primary btn-lg btn-success"
+                            type="submit">Generate your project
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-8">
+            <h2>Select modules</h2>
+            <form>
+            <div class="mb-3">
+                <label id="module-label"
+                       class="form-label"
+                       for="name">Type to filter</label>
+
+                <input id="module-input"
+                       class="form-control"
+                       name="module-query"
+                       hx-post="/search"
+                       hx-swap="innerHTML"
+                       hx-trigger="keyup changed delay:300ms"
+                       hx-target="#module-list"/>
+            </div>
+
+            <div class="mb-3" hx-post="/search" hx-target="#module-list"  hx-swap="innerHTML">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="moduleSelect" id="radioAll" value="all" checked>
+                    <label class="form-check-label" for="radioAll">
+                        All
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="moduleSelect" id="radioDatabase" value="database">
+                    <label class="form-check-label" for="radioDatabase">
+                        Database
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="moduleSelect" id="radioServer" value="server">
+                    <label class="form-check-label" for="radioServer">
+                        Server
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="moduleSelect" id="radioService" value="service">
+                    <label class="form-check-label" for="radioService">
+                        Service API
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="moduleSelect" id="radioCljs" value="cljs">
+                    <label class="form-check-label" for="radioCljs">
+                        ClojureScript
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="moduleSelect" id="radioMisc" value="misc">
+                    <label class="form-check-label" for="radioMisc">
+                        Misc.
+                    </label>
+                </div>
+            </div>
+        </form>
+
+
+            <div id="module-list"
+                 hx-trigger="load"
+                 hx-post="/search"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- scripts -->
+
+
+{% block page-scripts %}
+{% endblock %}
+</body>
+</html>

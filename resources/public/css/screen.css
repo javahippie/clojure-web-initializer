@@ -1,0 +1,11 @@
+button.btn-success {
+    width: 100%;
+}
+
+ul.module-list li {
+    cursor: pointer;
+}
+
+ul.module-list li:hover {
+    color: rgb(13, 110, 253);
+}
