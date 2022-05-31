@@ -6,6 +6,8 @@
     [ring.middleware.anti-forgery :refer [wrap-anti-forgery]]
     [clojure-web-initializer.middleware.formats :as formats]
     [muuntaja.middleware :refer [wrap-format wrap-params]]
+    [maja.middleware :refer [honey-middleware]]
+    [clojure-web-initializer.tracing :refer [honey]]
     [clojure-web-initializer.config :refer [env]]
     [ring-ttl-session.core :refer [ttl-memory-store]]
     [ring.middleware.defaults :refer [site-defaults wrap-defaults]])
@@ -21,13 +23,13 @@
                      :title   "Something very bad has happened!"
                      :message "We've dispatched a team of highly trained gnomes to take care of the problem."})))))
 
-(defn wrap-csrf [handler]
-  (wrap-anti-forgery
-    handler
-    {:error-response
-     (error-page
-       {:status 403
-        :title  "Invalid anti-forgery token"})}))
+(defn wrap-honey-middleware
+  "Custom middleware to send traces for every HTTP call to honeycomb.io.
+  Uses Maja: https://github.com/lambdaschmiede/maja"
+  [handler]
+  (if (some? honey)
+    (honey-middleware handler honey)
+    handler))
 
 (defn wrap-htmx [handler]
   (fn [{:keys [headers] :as req}]

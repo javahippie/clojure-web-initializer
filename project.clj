@@ -21,7 +21,8 @@
                  [org.clojure/tools.logging "1.2.4"]
                  [ring/ring-core "1.9.5"]
                  [ring/ring-defaults "0.3.3"]
-                 [selmer "1.12.50"]]
+                 [selmer "1.12.50"]
+                 [com.lambdaschmiede/maja "0.1.2"]]
 
   :min-lein-version "2.0.0"
   

@@ -111,10 +111,10 @@
                 :description "generates a bare bones luminus project"}})
 
 
-(defn home-page [request]
+(defn home-page {:traced true} [request]
   (layout/render request "base.html"))
 
-(defn search-modules [{:keys [params]}]
+(defn search-modules {:traced true} [{:keys [params]}]
   (let [categories (->> modules
                         (filter (fn [{:keys [name]}]
                                   (if (:module-query params)
@@ -138,13 +138,13 @@
                               [:span description]]
                              [:span {:class "badge bg-primary rounded-pill"} category]]))]))))
 
-(defn add-module [{:keys [session params]}]
+(defn add-module {:traced true} [{:keys [session params]}]
   (let [session (-> session
                     (update :modules #(conj % (str "+" (:value params)))))]
     (assoc (response/ok (html (map (fn [module]
                                      [:span {:class "badge rounded-pill text-bg-primary"} module]) (:modules session)))) :session session)))
 
-(defn generate-template [{:keys [session params]}]
+(defn generate-template {:traced true} [{:keys [session params]}]
   (let [id (str "/tmp/cljgen_" (random-uuid))
         name (:name params)
         modules (:modules session)]
@@ -160,7 +160,8 @@
 
 (defn home-routes []
   [""
-   {:middleware [middleware/wrap-htmx
+   {:middleware [middleware/wrap-honey-middleware
+                 middleware/wrap-htmx
                  middleware/wrap-formats]}
    ["/" {:get home-page}]
    ["/search" {:post search-modules}]
