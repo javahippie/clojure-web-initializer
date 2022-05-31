@@ -1,4 +1,4 @@
-(ns htmx-test.layout
+(ns clojure-web-initializer.layout
   (:require
     [clojure.java.io]
     [selmer.parser :as parser]

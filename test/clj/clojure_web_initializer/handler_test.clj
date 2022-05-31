@@ -1,9 +1,9 @@
-(ns htmx-test.handler-test
+(ns clojure-web-initializer.handler-test
   (:require
     [clojure.test :refer :all]
     [ring.mock.request :refer :all]
-    [htmx-test.handler :refer :all]
-    [htmx-test.middleware.formats :as formats]
+    [clojure-web-initializer.handler :refer :all]
+    [clojure-web-initializer.middleware.formats :as formats]
     [muuntaja.core :as m]
     [mount.core :as mount]))
 
@@ -13,8 +13,8 @@
 (use-fixtures
   :once
   (fn [f]
-    (mount/start #'htmx-test.config/env
-                 #'htmx-test.handler/app-routes)
+    (mount/start #'clojure-web-initializer.config/env
+                 #'clojure-web-initializer.handler/app-routes)
     (f)))
 
 (deftest test-app

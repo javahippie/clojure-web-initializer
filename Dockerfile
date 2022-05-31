@@ -1,7 +1,7 @@
 FROM openjdk:8-alpine
 
-COPY target/uberjar/htmx-test.jar /htmx-test/app.jar
+COPY target/uberjar/clojure-web-initializer.jar /clojure-web-initializer/app.jar
 
 EXPOSE 3000
 
-CMD ["java", "-jar", "/htmx-test/app.jar"]
+CMD ["java", "-jar", "/clojure-web-initializer/app.jar"]

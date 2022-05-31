@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: luminus-migrations:0.7.2">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/luminus-migrations/luminus-migrations/0.7.2/luminus-migrations-0.7.2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

@@ -1,19 +1,19 @@
 {
         "calva.customREPLCommandSnippets": [
         {
-            "name": "Start htmx-test Server",
+            "name": "Start clojure-web-initializer Server",
             "ns": "user",
             "repl": "clj",
             "snippet": "(start)"
         },
         {
-            "name": "Stop htmx-test Server",
+            "name": "Stop clojure-web-initializer Server",
             "ns": "user",
             "repl": "clj",
             "snippet": "(stop)"
         },
         {
-            "name": "Restart htmx-test Server",
+            "name": "Restart clojure-web-initializer Server",
             "ns": "user",
             "repl": "clj",
             "snippet": "(restart)"
@@ -21,7 +21,7 @@
     ],
     "calva.replConnectSequences": [
                 {
-            "name": "htmx-test Server",
+            "name": "clojure-web-initializer Server",
             "projectType": "Leiningen",
             "afterCLJReplJackInCode": "(in-ns 'user) (start) (println \"Access the server at http://localhost:3000\")",
             "cljsType": "none",

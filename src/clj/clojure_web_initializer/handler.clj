@@ -1,11 +1,11 @@
-(ns htmx-test.handler
+(ns clojure-web-initializer.handler
   (:require
-    [htmx-test.middleware :as middleware]
-    [htmx-test.layout :refer [error-page]]
-    [htmx-test.routes.home :refer [home-routes]]
+    [clojure-web-initializer.middleware :as middleware]
+    [clojure-web-initializer.layout :refer [error-page]]
+    [clojure-web-initializer.routes.home :refer [home-routes]]
     [reitit.ring :as ring]
     [ring.middleware.content-type :refer [wrap-content-type]]
-    [htmx-test.env :refer [defaults]]
+    [clojure-web-initializer.env :refer [defaults]]
     [mount.core :as mount]))
 
 (mount/defstate init-app

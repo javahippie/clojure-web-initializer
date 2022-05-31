@@ -1,4 +1,4 @@
-(ns htmx-test.middleware.formats
+(ns clojure-web-initializer.middleware.formats
   (:require
     [luminus-transit.time :as time]
     [muuntaja.core :as m]))

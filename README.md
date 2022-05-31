@@ -1,4 +1,4 @@
-# htmx-test
+# clojure-web-initializer
 
 generated using Luminus version "4.38"
 

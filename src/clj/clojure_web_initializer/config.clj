@@ -1,4 +1,4 @@
-(ns htmx-test.config
+(ns clojure-web-initializer.config
   (:require
     [cprop.core :refer [load-config]]
     [cprop.source :as source]

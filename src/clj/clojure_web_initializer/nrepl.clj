@@ -1,4 +1,4 @@
-(ns htmx-test.nrepl
+(ns clojure-web-initializer.nrepl
   (:require
     [nrepl.server :as nrepl]
     [clojure.tools.logging :as log]))

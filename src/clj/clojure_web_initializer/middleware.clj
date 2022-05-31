@@ -1,12 +1,12 @@
-(ns htmx-test.middleware
+(ns clojure-web-initializer.middleware
   (:require
-    [htmx-test.env :refer [defaults]]
+    [clojure-web-initializer.env :refer [defaults]]
     [clojure.tools.logging :as log]
-    [htmx-test.layout :refer [error-page]]
+    [clojure-web-initializer.layout :refer [error-page]]
     [ring.middleware.anti-forgery :refer [wrap-anti-forgery]]
-    [htmx-test.middleware.formats :as formats]
+    [clojure-web-initializer.middleware.formats :as formats]
     [muuntaja.middleware :refer [wrap-format wrap-params]]
-    [htmx-test.config :refer [env]]
+    [clojure-web-initializer.config :refer [env]]
     [ring-ttl-session.core :refer [ttl-memory-store]]
     [ring.middleware.defaults :refer [site-defaults wrap-defaults]])
   )

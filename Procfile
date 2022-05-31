@@ -1,1 +1,1 @@
-web: java -Dclojure.main.report=stderr -cp target/uberjar/htmx-test.jar clojure.main -m htmx-test.core
+web: java -Dclojure.main.report=stderr -cp target/uberjar/clojure-web-initializer.jar clojure.main -m clojure-web-initializer.core

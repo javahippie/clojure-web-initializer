@@ -5,12 +5,10 @@
 
   :dependencies [[ch.qos.logback/logback-classic "1.2.10"]
                  [clojure.java-time "0.3.3"]
-                 [conman "0.9.3"]
                  [cprop "0.1.19"]
                  [expound "0.9.0"]
                  [json-html "0.4.7"]
                  [luminus-http-kit "0.1.9"]
-                 [luminus-migrations "0.7.2"]
                  [luminus-transit "0.1.5"]
                  [luminus/ring-ttl-session "0.3.3"]
                  [metosin/muuntaja "0.6.8"]
@@ -21,7 +19,6 @@
                  [org.clojure/clojure "1.11.1"]
                  [org.clojure/tools.cli "1.0.206"]
                  [org.clojure/tools.logging "1.2.4"]
-                 [org.postgresql/postgresql "42.3.2"]
                  [ring/ring-core "1.9.5"]
                  [ring/ring-defaults "0.3.3"]
                  [selmer "1.12.50"]]
@@ -32,14 +29,14 @@
   :test-paths ["test/clj"]
   :resource-paths ["resources"]
   :target-path "target/%s/"
-  :main ^:skip-aot htmx-test.core
+  :main ^:skip-aot clojure-web-initializer.core
 
   :plugins [] 
 
   :profiles
   {:uberjar {:omit-source true
              :aot :all
-             :uberjar-name "htmx-test.jar"
+             :uberjar-name "clojure-web-initializer.jar"
              :source-paths ["env/prod/clj" ]
              :resource-paths ["env/prod/resources"]}
 

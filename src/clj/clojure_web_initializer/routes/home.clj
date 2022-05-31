@@ -1,7 +1,7 @@
-(ns htmx-test.routes.home
+(ns clojure-web-initializer.routes.home
   (:require
-    [htmx-test.layout :as layout]
-    [htmx-test.middleware :as middleware]
+    [clojure-web-initializer.layout :as layout]
+    [clojure-web-initializer.middleware :as middleware]
     [ring.util.response :refer [file-response]]
     [hiccup.core :refer [html]]
     [ring.util.http-response :as response]

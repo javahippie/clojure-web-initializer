@@ -1,4 +1,4 @@
-(ns htmx-test.dev-middleware
+(ns clojure-web-initializer.dev-middleware
   (:require
     [ring.middleware.reload :refer [wrap-reload]]
     [selmer.middleware :refer [wrap-error-page]]
@@ -8,4 +8,4 @@
   (-> handler
       wrap-reload
       wrap-error-page
-      (wrap-exceptions {:app-namespaces ['htmx-test]})))
+      (wrap-exceptions {:app-namespaces ['clojure-web-initializer]})))
