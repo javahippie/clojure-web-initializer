@@ -145,7 +145,7 @@
                                      [:span {:class "badge rounded-pill text-bg-primary"} module]) (:modules session)))) :session session)))
 
 (defn generate-template [{:keys [session params]}]
-  (let [id (str (random-uuid))
+  (let [id (str "/tmp/cljgen_" (random-uuid))
         name (:name params)
         modules (:modules session)]
     (sh "mkdir" id)
